@@ -1,11 +1,11 @@
-		
+
 		<!DOCTYPE html>
 		<html xmlns = "http://www.w3.org/1999/xhtml">
 		   <head>
 		      <title>Search Results</title>
 		   <style type = "text/css">
 		         body  { font-family: arial, sans-serif;
-		                 background-color: #F0E68C } 
+		                 background-color: #F0E68C }
 		         table { background-color: #ADD8E6 }
 		         td    { padding-top: 2px;
 		                 padding-bottom: 2px;
@@ -18,26 +18,26 @@
 		   <body>
 		      <?php
 		         extract( $_POST );
-		
+
 		         // build SELECT query
-		      
+
 				 $query="INSERT INTO books (ID,Title,Category,ISBN)
 				 VALUES ('$ID','$Title','$Category','$ISBN')";
-				 
-				 
+
+
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
-		            "root", "" ) ) )                      
+		            "root", "" ) ) )
 		            die( "Could not connect to database </body></html>" );
-		   
+
 		         // open Products database
-		         if ( !mysqli_select_db( $database ,"products" ) )
+		         if ( !mysqli_select_db( $database ,"assignment1" ) )
 		            die( "Could not open products database </body></html>" );
-		     
-		
-		
+
+
+
 		         // query Products database
-		         if ( !( $result = mysqli_query( $database,$query) ) ) 
+		         if ( !( $result = mysqli_query( $database,$query) ) )
 		         {
 		            print( "Could not execute query! <br />" );
 		            die( mysqli_error() . "</body></html>" );
@@ -48,6 +48,6 @@
 				}
 		         mysqli_close( $database );
 		      ?><!-- end PHP script -->
-		      
+
 		   </body>
 		</html>
