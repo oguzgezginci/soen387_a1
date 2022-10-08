@@ -21,7 +21,7 @@
 
 		         // build SELECT query
 
-				 $query="INSERT INTO books (ID,Title,Category,ISBN)
+				 $query="INSERT INTO students (ID,Title,Category,ISBN)
 				 VALUES ('$ID','$Title','$Category','$ISBN')";
 
 
