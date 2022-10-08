@@ -22,7 +22,7 @@
 		         extract( $_POST );
 
 		         // build SELECT query
-		         $query = "SELECT " . $select . " FROM books";
+		         $query = "SELECT " . $select . " FROM students";
 		         // Connect to MySQL
 		         if ( !( $database = mysqli_connect( "localhost",
 		            "root", "" ) ) )
