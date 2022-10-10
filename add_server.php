@@ -28,6 +28,7 @@
     <?php
 		         extract( $_POST );
 
+                 $startSemesterFall = date("m d",mktime(0,0,0,9,4,));
 		         // build SELECT query
                  $todayDay = date("d");
                  print("$today");
