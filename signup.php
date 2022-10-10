@@ -1,22 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-		<!DOCTYPE html>
-		<html xmlns = "http://www.w3.org/1999/xhtml">
-		   <head>
-		      <title>Search Results</title>
-		   <style type = "text/css">
-		         body  { font-family: arial, sans-serif;
-		                 background-color: #F0E68C }
-		         table { background-color: #ADD8E6 }
-		         td    { padding-top: 2px;
-		                 padding-bottom: 2px;
-		                 padding-left: 4px;
-		                 padding-right: 4px;
-		                 border-width: 1px;
-		                 border-style: inset }
-		      </style>
-		   </head>
-		   <body>
-		      <?php
+<head>
+    <title>Search Results</title>
+    <style type="text/css">
+    body {
+        font-family: arial, sans-serif;
+        background-color: #F0E68C
+    }
+
+    table {
+        background-color: #ADD8E6
+    }
+
+    td {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        border-width: 1px;
+        border-style: inset
+    }
+    </style>
+</head>
+
+<body>
+    <?php
 		         extract( $_POST );
 
 		         // build SELECT query
@@ -47,7 +56,9 @@
 				print("$first_Name $last_Name was insterted into the Database correctly");
 				}
 		         mysqli_close( $database );
-		      ?><!-- end PHP script -->
+		      ?>
+    <!-- end PHP script -->
 
-		   </body>
-		</html>
+</body>
+
+</html>

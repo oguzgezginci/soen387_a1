@@ -18,3 +18,11 @@ Administrator:
 
 Sign up:
 -our current version of view
+
+
+signup.php 
+create_course.php
+add.php
+drop.php
+
+

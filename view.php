@@ -48,7 +48,7 @@ mysqli_close($con);
   </head>
   <body>
     <h2>Insert to MySQL database.</h2>
-    <form method="post" action="server1.php">
+    <form method="post" action="signup.php">
       <div>
         <p>
           First Name
