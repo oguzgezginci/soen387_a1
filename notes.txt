@@ -1,0 +1,20 @@
+malek:
+inputs and validations
+
+premiere page: Choix : Student or Admin
+
+Student: 
+-GET request to access all courses
+-Enroll button next to each course : POST  request to Mostafa
+-Drop button : POST request to mostafa
+-Mostafa: select from ENROLLMENT where studendID= id and make sur < 5 , and then INSETT into ENROLLMENT
+
+
+Administrator:
+-GET request to access all courses
+-Add Course: POST request to mostafa
+-report1: select from ENROLLMENT..
+-report2: select from ENROLLMENT JOIN Courses on course_id WHERE (date aujourd'hui > date_debut et < date_fin
+
+Sign up:
+-our current version of view

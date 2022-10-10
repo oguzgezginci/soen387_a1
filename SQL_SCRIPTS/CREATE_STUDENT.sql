@@ -1,5 +1,5 @@
 CREATE TABLE STUDENT (
-    ID int NOT NULL PRIMARY KEY,
+    ID int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     first_Name varchar(250),
     last_Name varchar(250),
     address varchar(250),
