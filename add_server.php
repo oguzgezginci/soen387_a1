@@ -29,9 +29,10 @@
 		         extract( $_POST );
 
 		         // build SELECT query
+                 $todayDay = date("d");
+                 print("$today");
 
-				 $query="INSERT INTO student (first_Name, last_Name, address, email, phone_Number, date_of_birth)
-				 VALUES ('$first_Name','$last_Name','$address','$email', '$phone_Number', '$date_of_birth')";
+				 $query="";
 
 
 		         // Connect to MySQL
@@ -49,11 +50,11 @@
 		         if ( !( $result = mysqli_query( $database,$query) ) )
 		         {
 		            print( "Could not execute query! <br />" );
-		            die( mysqli_error() . "</body></html>" );
+		            // die( mysqli_error() . "</body></html>" );
 		         } // end if
 				else
 				{
-				print("$first_Name $last_Name was insterted into the Database correctly");
+					print("$first_Name $last_Name was insterted into the Database correctly");
 				}
 		         mysqli_close( $database );
 		      ?>

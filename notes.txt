@@ -21,7 +21,7 @@ Sign up:
 
 
 signup.php 
-create_course.php
+create_course.php --fini
 add.php
 drop.php
 
