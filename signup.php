@@ -36,7 +36,7 @@ mysqli_close($con);
 <body>
   <div class="container">
     <h2>Insert to MySQL database.</h2>
-    <form method="post" action="server1.php">
+    <form method="post" action="signup_server.php">
       <div class="form-group">
         <label for="first_Name">First Name</label>
         <input type="text" class="form-control" id="first_Name" name="first_Name" placeholder="Enter first name">
