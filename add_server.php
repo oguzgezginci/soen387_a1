@@ -32,7 +32,7 @@
     // $todayDay = 11;
     // $todayMonth = 10;
     // $limitCourses = 4;
-    // $semester = "W";
+    // $presentSemester = "W";
     $todayDay = date("d");
     $todayMonth = date("m");
 
@@ -59,7 +59,7 @@
     if (!mysqli_select_db($database, "assignment1"))
         die("Could not open products database </body></html>");
 
-    if ($semester == "F") {
+    if ($presentSemester == "F") {
         if (($todayMonth <= 8) || $todayMonth == 9 && $todayDay <= 11) {
             $allowed = true;
         } else {
