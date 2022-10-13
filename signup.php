@@ -1,42 +1,26 @@
 <!DOCTYPE html">
-<?php
-$con = mysqli_connect("localhost", "root", "", "assignment1");
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
 
-$result = mysqli_query($con, "SELECT * FROM Student");
-
-echo "<table border='1'>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>";
-
-while ($row = mysqli_fetch_array($result)) {
-  echo "<tr>";
-  echo "<td>" . $row['first_Name'] . "</td>";
-  echo "<td>" . $row['last_Name'] . "</td>";
-  echo "</tr>";
-}
-echo "</table>";
-
-mysqli_close($con);
-?>
 
 
 <html>
 
 <head>
-  <title>Sample Database Query</title>
+  <title>Sign up as a student</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script src="jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="js/form-validation.js"></script>
+  <style>
+    form .error {
+      color: #ff0000;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <h2>Insert to MySQL database.</h2>
-    <form method="post" action="server1.php">
+    <h2>Register</h2>
+    <form name="signup" method="post" action="signup_server.php">
       <div class="form-group">
         <label for="first_Name">First Name</label>
         <input type="text" class="form-control" id="first_Name" name="first_Name" placeholder="Enter first name">
@@ -61,6 +45,10 @@ mysqli_close($con);
         <label class="form-label" for="date_of_birth">Birthday:</label>
         <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" />
       </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Please choose a password:</label>
+        <input type="password" id="password" class="form-control" name="password" />
+      </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
@@ -68,6 +56,4 @@ mysqli_close($con);
 
 </html>
 <script>
-  // Data Picker Initialization
-  $('.datepicker').datepicker();
 </script>

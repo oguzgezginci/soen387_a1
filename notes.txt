@@ -18,3 +18,9 @@ Administrator:
 
 Sign up:
 -our current version of view
+
+
+
+
+mostafa needs to: get a password in php, add passowrd in sql (together)
+signin in needs to return an id
