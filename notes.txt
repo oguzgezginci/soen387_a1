@@ -20,6 +20,15 @@ Sign up:
 -our current version of view
 
 
+signup.php --fini fonctionnel
+create_course.php --fini needs testing
+add.php --fini needs testing
+drop.php
+
+
+
+
+
 
 
 mostafa needs to: get a password in php, add passowrd in sql (together)
