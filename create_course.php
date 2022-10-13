@@ -20,7 +20,7 @@
 <body>
   <div class="container">
     <h2>Add course</h2>
-    <form name="signup" method="post" action="add_course_server.php">
+    <form name="signup" method="post" action="create_course_server.php">
       <div class="form-group">
         <label for="course_code">Course Code</label>
         <input type="text" class="form-control" id="course_code" name="course_code" placeholder="Enter course code">

@@ -28,6 +28,11 @@
       <button type="submit">Log in as an administrator</button>
     </form>
   </div>
+  <a href="student_index.php">quick link to student table for devs only</a>
+  <br>
+  <a href="courses_index.php">quick link to courses table for devs only ; (shouldn't be accessed without a login, which is not yet implemented)</a>
+  <br>
+  <a href="create_course.php">quick link to create courses page for devs only ; (shouldn't be accessed without a login, which is not yet implemented)</a>
 </body>
 
 </html>
