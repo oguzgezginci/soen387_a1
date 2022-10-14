@@ -29,11 +29,11 @@ drop.php
 
 mostafa todo : 
 
--return and display an id when the student registers
+1.1-return and display an id when the student registers --> ** done **
 
--bugfix 1 : see bugfix1 images ; database only has courses 555 and 333 inserted (manually in sql). I try to insert course 99 and I get the msg "99 already exists!". 
+1.2-bugfix 1 : see bugfix1 images ; database only has courses 555 and 333 inserted (manually in sql). I try to insert course 99 and I get the msg "99 already exists!". --> ** done **
 
--make "enroll_server.php" (I send you just the "selected_course_code" and "student_id" of the course from the "courses_index.php" view, you make an insert into ENROLLMENT) :
+1.3-make "enroll_server.php" (I send you just the "selected_course_code" and "student_id" of the course from the "courses_index.php" view, you make an insert into ENROLLMENT) :
 
 -maybe we should remove the column "days" from the table "course" ? we already have the table course_days for that purpose --> ** it is the assignments requirement to have the column "days" **
 

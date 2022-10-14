@@ -33,7 +33,7 @@
   $query = "INSERT INTO student (first_Name, last_Name, address, email, phone_Number, date_of_birth)
 				 VALUES ('$first_Name','$last_Name','$address','$email', '$phone_Number', '$date_of_birth')";
 
-
+  $queryID = "SELECT ID FROM student ORDER BY ID DESC LIMIT 1";
   // Connect to MySQL
   if (!($database = mysqli_connect(
     "localhost",
@@ -46,15 +46,18 @@
   if (!mysqli_select_db($database, "assignment1"))
     die("Could not open products database </body></html>");
 
-
+  
 
   // query Products database
   if (!($result = mysqli_query($database, $query))) {
     print("Could not execute query! <br />");
-    die(mysqli_error() . "</body></html>");
+    //die(mysqli_error() . "</body></html>");
   } // end if
   else {
-    print("$first_Name $last_Name was insterted into the Database correctly");
+    print("$first_Name $last_Name was insterted into the Database correctly <br>");
+    $idRow = mysqli_query($database, $queryID);
+    $id = mysqli_fetch_row($idRow);
+    print("Your ID is: $id[0]");
   }
   mysqli_close($database);
   ?>
