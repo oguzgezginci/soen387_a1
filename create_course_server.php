@@ -45,8 +45,13 @@
   // open Products database
   if (!mysqli_select_db($database, "assignment1"))
     die("Could not open assignment1 database </body></html>");
+  $queryResult = mysqli_query($database, $verification);
+  if(is_bool($queryResult)){
 
-  if (!(mysqli_query($database, $verification))) {
+  } else {
+    $queryResult = true;
+  }
+  if ($queryResult) {
 
     // query Products database
     if (!($result = mysqli_query($database, $query))) {
