@@ -46,23 +46,24 @@
   if (!mysqli_select_db($database, "assignment1"))
     die("Could not open assignment1 database </body></html>");
   $queryResult = mysqli_query($database, $verification);
-  if(is_bool($queryResult)){
-
-  } else {
-    $queryResult = true;
-  }
   if (!$queryResult) {
-
-    // query Products database
-    if (!($result = mysqli_query($database, $query))) {
-      print("Could not execute query! <br />");
-      //die( mysqli_error() . "</body></html>" );
-    } // end if
-    else {
-      print("$course_code: $title was insterted into the Database correctly");
-    }
+    print("An error occured");
   } else {
-    print("$course_code already exists!");
+    $resultCheck = mysqli_num_rows($queryResult);
+
+    if ($resultCheck == 0) {
+
+      // query Products database
+      if (!($result = mysqli_query($database, $query))) {
+        print("Could not execute query! <br />");
+        //die( mysqli_error() . "</body></html>" );
+      } // end if
+      else {
+        print("$course_code: $title was insterted into the Database correctly");
+      }
+    } else {
+      print("$course_code already exists!");
+    }
   }
   mysqli_close($database);
   ?>
