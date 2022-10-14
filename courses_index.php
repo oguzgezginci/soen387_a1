@@ -50,7 +50,7 @@ $student_id = $_POST["id"];
     echo "<tr>";
     //$posts[$row['course_code']]['course_code'] = $row['course_code'];
     $cc = $row['course_code'];
-    echo "<td><input type='radio' name='selected_course_code' value='$cc'></td>";
+    echo "<td><input type='radio' name='course_code' value='$cc'></td>";
     echo "<td>" . $row['course_code'] . "</td>";
     //$posts[$row['course_code']]['title'] = $row['title'];
     echo "<td>" . $row['title'] . "</td>";
@@ -78,7 +78,7 @@ $student_id = $_POST["id"];
 <script>
   $(document).ready(function() {
 
-    $("[name='selected_course_code']").on('input change', function() {
+    $("[name='course_code']").on('input change', function() {
         if($(this).val() != '') {
             $('#submit_button').prop('disabled', false);
         } else {
