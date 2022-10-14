@@ -27,9 +27,17 @@ drop.php
 
 
 
+mostafa todo : 
+
+-return and display an id when the student registers
+
+-bugfix 1 : see bugfix1 images ; database only has courses 555 and 333 inserted (manually in sql). I try to insert course 99 and I get the msg "99 already exists!". 
+
+-make "enroll_server.php" (I send you just the "selected_course_code" and "student_id" of the course from the "courses_index.php" view, you make an insert into ENROLLMENT) :
+
+-maybe we should remove the column "days" from the table "course" ? we already have the table course_days for that purpose
 
 
-
-
-mostafa needs to: get a password in php, add passowrd in sql (together)
-signin in needs to return an id
+malek todo: 
+-report1
+-report2

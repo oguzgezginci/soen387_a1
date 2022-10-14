@@ -1,7 +1,12 @@
 <?php
 $user;
-if ($_GET["user"] == "S") $user = "Student";
-else if ($_GET["user"] == "A") $user = "Administrator";
+if ($_GET["user"] == "S") {
+  $action = "courses_index.php?";
+  $user = "Student";
+} else if ($_GET["user"] == "A") {
+  $action = "create_course.php?";
+  $user = "Administrator";
+}
 ?>
 <html>
 
@@ -21,15 +26,15 @@ else if ($_GET["user"] == "A") $user = "Administrator";
 <body>
   <div class="container">
     <h2><?php echo $user ?> log in</h2>
-    <form name="signup" method="post" action="login-server.php">
+    <form name="login" method="post" action="<?php echo $action ?>">
       <div class="form-group">
-        <label class="form-label" for="id">Input id:</label>
+        <label class="form-label" for="id">Input <?php echo $user ?> id:</label>
         <input type="id" id="id" class="form-control" name="id" />
       </div>
-      <div class="form-group">
+      <!--       <div class="form-group">
         <label class="form-label" for="password">Input password:</label>
         <input type="password" id="password" class="form-control" name="password" />
-      </div>
+      </div> -->
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

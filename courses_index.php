@@ -1,3 +1,7 @@
+<?php
+$student_id = $_POST["id"];
+?>
+
 <html>
 
 <head>
@@ -13,37 +17,63 @@
   </style>
 </head>
 
-<?php
-$con = mysqli_connect("localhost", "root", "", "assignment1");
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+<body>
+  <h2>Logged in with student ID : <?php echo $student_id ?></h2>
+  <?php
+  $con = mysqli_connect("localhost", "root", "", "assignment1");
+  // Check connection
+  if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
-$result = mysqli_query($con, "SELECT * FROM course");
+  $result = mysqli_query($con, "SELECT * FROM course");
 
-echo "<table border='1'>
+  $posts = array();
+
+  echo "
+<form name='enroll' method='post' action='enroll_server.php'>
+<input type='hidden' id='student_id' name='student_id' value='$student_id'>
+<table class='table' >
+<thead>
 <tr>
-<th>Code</th>
-<th>Title</th>
-<th>Semester</th>
-<th>Instructor</th>
-<th>Room</th>
-</tr>";
+<th scope='col'>Select</th>
+<th scope='col'>Code</th>
+<th scope='col'>Title</th>
+<th scope='col'>Semester</th>
+<th scope='col'>Instructor</th>
+<th scope='col'>Room</th>
+</tr>
+</thead>
+<tbody>";
 
-while ($row = mysqli_fetch_array($result)) {
-  echo "<tr>";
-  echo "<td>" . $row['course_code'] . "</td>";
-  echo "<td>" . $row['title'] . "</td>";
-  echo "<td>" . $row['semester'] . "</td>";
-  echo "<td>" . $row['instructor'] . "</td>";
-  echo "<td>" . $row['room'] . "</td>";
-  echo "</tr>";
-}
-echo "</table>";
+  while ($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    //$posts[$row['course_code']]['course_code'] = $row['course_code'];
+    $cc = $row['course_code'];
+    echo "<td><input type='radio' name='selected_course_code' value='$cc'></td>";
+    echo "<td>" . $row['course_code'] . "</td>";
+    //$posts[$row['course_code']]['title'] = $row['title'];
+    echo "<td>" . $row['title'] . "</td>";
+    //$posts[$row['course_code']]['semester'] = $row['semester'];
+    echo "<td>" . $row['semester'] . "</td>";
+    //$posts[$row['course_code']]['instructor'] = $row['instructor'];
+    echo "<td>" . $row['instructor'] . "</td>";
+    //$posts[$row['course_code']]['room'] = $row['room'];
+    echo "<td>" . $row['room'] . "</td>";
+    echo "</tr>";
+  }
+  echo "
+</tbody>
+</table>
+<button type='submit' class='btn btn-primary'>Enroll</button>
+</form>
+";
 
-mysqli_close($con);
+  //print_r($posts);
 
-?>
+  mysqli_close($con);
+
+  ?>
+</body>
 
 </html>

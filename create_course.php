@@ -38,8 +38,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="semester">Days: (multiple select with ctrl)</label>
-        <select class="form-control" id="semester" name="semester" multiple>
+        <label for="days">Days: (multiple select with ctrl)</label>
+        <select class="form-control" id="days" name="days" multiple>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
           <option value="Wednesday">Wednesday</option>
