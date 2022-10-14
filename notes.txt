@@ -43,3 +43,15 @@ malek todo:
 -report2
 
 TU CROIS TES MON BOSSSS????!!!!
+
+First report: 
+
+SELECT student.*
+FROM student, enrollment
+WHERE ID = enrollment.student_ID AND enrollment.course_code = '$course_code';
+
+Second report:
+
+SELECT course.*
+FROM course, enrollment
+WHERE enrollment.student_ID = '$student_ID';
