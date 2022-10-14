@@ -29,7 +29,7 @@
   extract($_POST);
 
   // build SELECT query
-  $verification = "SELECT course_code FROM course WHERE '$course_code'";
+  $verification = "SELECT course_code FROM course WHERE course_code = '$course_code'";
   $query = "INSERT INTO course (course_code, title, semester, days, time, instructor, room, start_date, end_date)
 				 VALUES ('$course_code','$title','$semester','$days', '$time', '$instructor', '$room', '$start_date',  '$end_date')";
 
@@ -51,7 +51,7 @@
   } else {
     $queryResult = true;
   }
-  if ($queryResult) {
+  if (!$queryResult) {
 
     // query Products database
     if (!($result = mysqli_query($database, $query))) {
