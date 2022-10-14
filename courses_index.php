@@ -65,7 +65,7 @@ $student_id = $_POST["id"];
   echo "
 </tbody>
 </table>
-<button type='submit' class='btn btn-primary'>Enroll</button>
+<button type='submit' id='submit_button' class='btn btn-primary' disabled>Enroll</button>
 </form>
 ";
 
@@ -75,5 +75,16 @@ $student_id = $_POST["id"];
 
   ?>
 </body>
+<script>
+  $(document).ready(function() {
 
+    $("[name='selected_course_code']").on('input change', function() {
+        if($(this).val() != '') {
+            $('#submit_button').prop('disabled', false);
+        } else {
+            $('#submit_button').prop('disabled', true);
+        }
+    });
+});
+</script>
 </html>

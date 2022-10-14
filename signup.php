@@ -45,10 +45,6 @@
         <label class="form-label" for="date_of_birth">Birthday:</label>
         <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" />
       </div>
-      <div class="form-group">
-        <label class="form-label" for="password">Please choose a password:</label>
-        <input type="password" id="password" class="form-control" name="password" />
-      </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
