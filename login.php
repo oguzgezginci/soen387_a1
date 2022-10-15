@@ -26,7 +26,7 @@ if ($_GET["user"] == "S") {
 <body>
   <div class="container">
     <h2><?php echo $user ?> log in</h2>
-    <form name="login" method="post" action="<?php echo $action ?>">
+    <form name="login" class="validated_form" method="post" action="<?php echo $action ?>">
       <div class="form-group">
         <label class="form-label" for="id">Input <?php echo $user ?> id:</label>
         <input type="id" id="id" class="form-control" name="id" />

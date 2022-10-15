@@ -20,7 +20,7 @@
 <body>
   <div class="container">
     <h2>Register</h2>
-    <form name="signup" method="post" action="signup_server.php">
+    <form name="signup"  class="validated_form" method="post" action="signup_server.php">
       <div class="form-group">
         <label for="first_Name">First Name</label>
         <input type="text" class="form-control" id="first_Name" name="first_Name" placeholder="Enter first name">
