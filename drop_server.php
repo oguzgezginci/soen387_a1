@@ -29,10 +29,10 @@
 	extract($_POST);
 
 	//Testing values
-	$todayDay = 25;
-	$todayMonth = 3;
-	$limitCourses = 4;
-	$presentSemester = "W";
+	// $todayDay = 25;
+	// $todayMonth = 3;
+	// $limitCourses = 4;
+	// $presentSemester = "W";
 	$todayDay = date("d");
 	$todayMonth = date("m");
 
@@ -74,6 +74,7 @@
 			$allowed = false;
 		}
 	}
+<<<<<<< HEAD
 	if ($allowed) {
 		if (mysqli_query($database, $limitCourses) == false) {
 			if (!($result = mysqli_query($database, $query))) {
@@ -82,12 +83,28 @@
 			} // end if
 			else {
 				print("$course_code was dropped successfully");
+=======
+	$resultCheck = mysqli_query($database, $limitCourses);
+	if (!$resultCheck) {
+		print("An error occured");
+	} else {
+		if ($allowed) {
+			$dropCheck = mysqli_num_rows($resultCheck);
+			if ($dropCheck > 0) {
+				if (!($result = mysqli_query($database, $query))) {
+					print("Could not execute query! <br />");
+					// die( mysqli_error() . "</body></html>" );
+				} // end if
+				else {
+					print("$course_code was dropped successfully");
+				}
+			} else {
+				print("You already have no classes");
+>>>>>>> 5b5d2869f7319cc2897b7b1d05c3033ad95c805a
 			}
 		} else {
-			print("You already have no classes");
+			print("You cannot drop classes at this moment");
 		}
-	} else {
-		print("You cannot drop classes at this moment");
 	}
 	mysqli_close($database);
 	?>
