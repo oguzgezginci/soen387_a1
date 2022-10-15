@@ -29,25 +29,25 @@
 	extract($_POST);
 
 	//Testing values
-	$todayDay = 25;
-	$todayMonth = 3;
-	$limitCourses = 4;
-	$presentSemester = "W";
-	// $todayDay = date("d");
-	// $todayMonth = date("m");
+	// $todayDay = 25;
+	// $todayMonth = 3;
+	// $limitCourses = 4;
+	// $presentSemester = "W";
+	$todayDay = date("d");
+	$todayMonth = date("m");
 
-	// $query =
-	// 	"DELETE FROM enrollment WHERE course_code = '$course_code' AND student_ID = '$student_ID'";
+	$query =
+		"DELETE FROM enrollment WHERE course_code = '$course_code' AND student_ID = '$student_ID'";
 
-	// $limitCourses =
-	// 	"SELECT student_ID
-	// 	FROM enrollment 
-	// 	WHERE studentID = '$student_ID'";
+	$limitCourses =
+		"SELECT student_ID
+		FROM enrollment 
+		WHERE studentID = '$student_ID'";
 
-	// $presentSemester = 
-	// 	"SELECT semester
-	// 	FROM course
-	// 	WHERE course_code = '$course_code'";
+	$presentSemester =
+		"SELECT semester
+		FROM course
+		WHERE course_code = '$course_code'";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
@@ -74,20 +74,26 @@
 			$allowed = false;
 		}
 	}
-	if ($allowed) {
-		if (mysqli_query($database, $limitCourses) == false) {
-			if (!($result = mysqli_query($database, $query))) {
-				print("Could not execute query! <br />");
-				// die( mysqli_error() . "</body></html>" );
-			} // end if
-			else {
-				//print("$course_code was dropped successfully");
+	$resultCheck = mysqli_query($database, $limitCourses);
+	if (!$resultCheck) {
+		print("An error occured");
+	} else {
+		if ($allowed) {
+			$dropCheck = mysqli_num_rows($resultCheck);
+			if ($dropCheck > 0) {
+				if (!($result = mysqli_query($database, $query))) {
+					print("Could not execute query! <br />");
+					// die( mysqli_error() . "</body></html>" );
+				} // end if
+				else {
+					print("$course_code was dropped successfully");
+				}
+			} else {
+				print("You already have no classes");
 			}
 		} else {
-			print("You already have no classes");
+			print("You cannot drop classes at this moment");
 		}
-	} else {
-		print("You cannot drop classes at this moment");
 	}
 	mysqli_close($database);
 	?>
