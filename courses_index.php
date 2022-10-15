@@ -61,7 +61,7 @@ $student_id = $_POST["id"];
 </tbody>
 </table>
 <button type='submit' id='submit_button' formaction='enroll_server.php' class='btn btn-primary' disabled>Enroll</button>
-<button type='submit' id='drop_button' formaction='drop_server.php' class='btn btn-primary' disabled>Drop</button>
+<button type='submit' id='drop_button' formaction='drop_server.php' class='btn btn-primary' disabled>Drop </button>
 </form>
 ";
 

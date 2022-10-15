@@ -42,7 +42,7 @@
 	$limitCourses =
 		"SELECT student_ID
 		FROM enrollment 
-		WHERE studentID = '$student_id'";
+		WHERE student_ID = '$student_id'";
 
 	$presentSemester = 
 		"SELECT semester
@@ -60,8 +60,10 @@
 	// open Products database
 	if (!mysqli_select_db($database, "assignment1"))
 		die("Could not open products database </body></html>");
-
-	if ($presentSemester == "F") {
+	$presentSemester = mysqli_fetch_row(mysqli_query($database, $presentSemester));
+	$allowed;
+	printf($presentSemester[0]);
+	if ($presentSemester[0] == "F") {
 		if (($todayDay < 25 && $todayMonth == 12) || ($todayMonth <= 11 && $todayMonth >= 9)) {
 			$allowed = true;
 		} else {

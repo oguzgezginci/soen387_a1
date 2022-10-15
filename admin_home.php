@@ -21,7 +21,7 @@
     <h2>Admin home</h2>
     <form name="report1"  method="post" action="report1.php">
       <div class="form-group">
-        <label class="form-label" for="course_code">Input course code:</label>
+        <label class="form-label" for="course_code">Report 1: Input course code:</label>
         <input type="course_code" id="course_code" class="form-control" name="course_code" />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -29,7 +29,7 @@
 
     <form name="report2"  method="post" action="report2.php">
       <div class="form-group">
-        <label class="form-label" for="student_id">Input student id:</label>
+        <label class="form-label" for="student_id">Report 2: Input student id:</label>
         <input type="student_id" id="student_id" class="form-control" name="student_id" />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>

@@ -35,9 +35,13 @@ if ($_GET["user"] == "S") {
         <label class="form-label" for="password">Input password:</label>
         <input type="password" id="password" class="form-control" name="password" />
       </div> -->
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Log in</button>
     </form>
   </div>
+  <div class="container">
+  <?php if ($user == "Administrator")
+    echo " <a class='btn btn-primary' href='admin_home.php'>Get reports</a>" ?>
+ </div>
 </body>
 
 </html>
