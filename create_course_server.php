@@ -32,7 +32,7 @@
   $verification = "SELECT course_code FROM course WHERE course_code = '$course_code'";
   $query = "INSERT INTO course (course_code, title, semester, days, time, instructor, room, start_date, end_date)
 				 VALUES ('$course_code','$title','$semester','$days', '$time', '$instructor', '$room', '$start_date',  '$end_date')";
-
+  $adminID = "SELECT employment_ID FROM administrator WHERE employment_ID = '$id'";
 
   // Connect to MySQL
   if (!($database = mysqli_connect(
@@ -46,24 +46,34 @@
   if (!mysqli_select_db($database, "assignment1"))
     die("Could not open assignment1 database </body></html>");
   $queryResult = mysqli_query($database, $verification);
-  if (!$queryResult) {
+  $adminResult = mysqli_query($database, $adminID);
+  if (!$adminResult) {
     print("An error occured");
   } else {
-    $resultCheck = mysqli_num_rows($queryResult);
-
-    if ($resultCheck == 0) {
-
-      // query Products database
-      if (!($result = mysqli_query($database, $query))) {
-        print("Could not execute query! <br />");
-        //die( mysqli_error() . "</body></html>" );
-      } // end if
-      else {
-        print("$course_code: $title was insterted into the Database correctly");
-      }
+    $adminCheck = mysqli_num_rows($adminResult);
+    if($adminCheck > 0){
+    if (!$queryResult) {
+      print("An error occured");
     } else {
-      print("$course_code already exists!");
+      $resultCheck = mysqli_num_rows($queryResult);
+
+      if ($resultCheck == 0) {
+
+        // query Products database
+        if (!($result = mysqli_query($database, $query))) {
+          print("Could not execute query! <br />");
+          //die( mysqli_error() . "</body></html>" );
+        } // end if
+        else {
+          print("$course_code: $title was insterted into the Database correctly");
+        }
+      } else {
+        print("$course_code already exists!");
+      }
     }
+  } else {
+    print("This id is not recognized as an admin id");
+  }
   }
   mysqli_close($database);
   ?>
