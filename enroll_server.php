@@ -36,9 +36,9 @@
     $todayDay = date("d");
     $todayMonth = date("m");
 
-    $query = "INSERT INTO enrollment(student_id, course_code)
+    $query = "INSERT INTO enrollment(student_ID, course_code)
                          VALUES ('$student_id', '$course_code')";
-    
+
     $limitCourses = "SELECT student_ID
                                   FROM enrollment 
                                   WHERE student_ID = '$student_id'";
@@ -72,21 +72,27 @@
             $allowed = false;
         }
     }
-    if ($allowed) {
-        if (mysqli_query($database, $limitCourses) < 5) {
-            // query Products database
-            if (!($result = mysqli_query($database, $query))) {
-                print("Could not execute query! <br />");
-                // die( mysqli_error() . "</body></html>" );
-            } // end if
-            else {
-                print("$course_code was insterted into the Database correctly");
+    $resultCheck = mysqli_query($database, $limitCourses);
+    if (!$resultCheck) {
+        print("An error occured");
+    } else {
+        if ($allowed) {
+            $tableRows = mysqli_num_rows($resultCheck);
+            if ($tableRows < 5) {
+                // query Products database
+                try {
+                    $result = mysqli_query($database, $query);
+
+                    // die( mysqli_error() . "</body></html>" );
+                } catch (Exception) {
+                    print("Could not execute query");
+                }
+            } else {
+                print("has already 5 courses enrolled in for this semester.");
             }
         } else {
-            print("has already 5 courses enrolled in for this semester.");
+            print("Today is past the date limit for enrollment.");
         }
-    } else {
-        print("Today is past the date limit for enrollment.");
     }
     mysqli_close($database);
     ?>
