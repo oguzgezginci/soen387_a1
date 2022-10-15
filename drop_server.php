@@ -33,21 +33,21 @@
 	$todayMonth = 3;
 	$limitCourses = 4;
 	$presentSemester = "W";
-	// $todayDay = date("d");
-	// $todayMonth = date("m");
+	$todayDay = date("d");
+	$todayMonth = date("m");
 
-	// $query =
-	// 	"DELETE FROM enrollment WHERE course_code = '$course_code' AND student_ID = '$student_ID'";
+	$query =
+		"DELETE FROM enrollment WHERE course_code = '$course_code' AND student_ID = '$student_id'";
 
-	// $limitCourses =
-	// 	"SELECT student_ID
-	// 	FROM enrollment 
-	// 	WHERE studentID = '$student_ID'";
+	$limitCourses =
+		"SELECT student_ID
+		FROM enrollment 
+		WHERE studentID = '$student_id'";
 
-	// $presentSemester = 
-	// 	"SELECT semester
-	// 	FROM course
-	// 	WHERE course_code = '$course_code'";
+	$presentSemester = 
+		"SELECT semester
+		FROM course
+		WHERE course_code = '$course_code'";
 
 	// Connect to MySQL
 	if (!($database = mysqli_connect(
@@ -62,13 +62,13 @@
 		die("Could not open products database </body></html>");
 
 	if ($presentSemester == "F") {
-		if ($todayDay < 25 && $todayMonth == 12 || $todayMonth <= 11 && $todayMonth >= 9) {
+		if (($todayDay < 25 && $todayMonth == 12) || ($todayMonth <= 11 && $todayMonth >= 9)) {
 			$allowed = true;
 		} else {
 			$allowed = false;
 		}
 	} else {
-		if ($todayDay <= 30 && $todayMonth == 4 || $todayMonth <= 3 && $todayMonth >= 1) {
+		if (($todayDay <= 30 && $todayMonth == 4) || ($todayMonth <= 3 && $todayMonth >= 1))  {
 			$allowed = true;
 		} else {
 			$allowed = false;
@@ -81,7 +81,7 @@
 				// die( mysqli_error() . "</body></html>" );
 			} // end if
 			else {
-				//print("$course_code was dropped successfully");
+				print("$course_code was dropped successfully");
 			}
 		} else {
 			print("You already have no classes");

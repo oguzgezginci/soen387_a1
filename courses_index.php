@@ -31,7 +31,7 @@ $student_id = $_POST["id"];
   $posts = array();
 
   echo "
-<form name='enroll' method='post' action='enroll_server.php'>
+<form name='enroll' method='post'>
 <input type='hidden' id='student_id' name='student_id' value='$student_id'>
 <table class='table' >
 <thead>
@@ -48,24 +48,20 @@ $student_id = $_POST["id"];
 
   while ($row = mysqli_fetch_array($result)) {
     echo "<tr>";
-    //$posts[$row['course_code']]['course_code'] = $row['course_code'];
     $cc = $row['course_code'];
     echo "<td><input type='radio' name='course_code' value='$cc'></td>";
     echo "<td>" . $row['course_code'] . "</td>";
-    //$posts[$row['course_code']]['title'] = $row['title'];
     echo "<td>" . $row['title'] . "</td>";
-    //$posts[$row['course_code']]['semester'] = $row['semester'];
     echo "<td>" . $row['semester'] . "</td>";
-    //$posts[$row['course_code']]['instructor'] = $row['instructor'];
     echo "<td>" . $row['instructor'] . "</td>";
-    //$posts[$row['course_code']]['room'] = $row['room'];
     echo "<td>" . $row['room'] . "</td>";
     echo "</tr>";
   }
   echo "
 </tbody>
 </table>
-<button type='submit' id='submit_button' class='btn btn-primary' disabled>Enroll</button>
+<button type='submit' id='submit_button' formaction='enroll_server.php' class='btn btn-primary' disabled>Enroll</button>
+<button type='submit' id='drop_button' formaction='drop_server.php' class='btn btn-primary' disabled>Drop</button>
 </form>
 ";
 
@@ -80,9 +76,9 @@ $student_id = $_POST["id"];
 
     $("[name='course_code']").on('input change', function() {
         if($(this).val() != '') {
-            $('#submit_button').prop('disabled', false);
+            $('.btn').prop('disabled', false);
         } else {
-            $('#submit_button').prop('disabled', true);
+            $('.btn').prop('disabled', true);
         }
     });
 });
