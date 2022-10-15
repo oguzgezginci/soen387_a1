@@ -74,16 +74,6 @@
 			$allowed = false;
 		}
 	}
-<<<<<<< HEAD
-	if ($allowed) {
-		if (mysqli_query($database, $limitCourses) == false) {
-			if (!($result = mysqli_query($database, $query))) {
-				print("Could not execute query! <br />");
-				// die( mysqli_error() . "</body></html>" );
-			} // end if
-			else {
-				print("$course_code was dropped successfully");
-=======
 	$resultCheck = mysqli_query($database, $limitCourses);
 	if (!$resultCheck) {
 		print("An error occured");
@@ -100,7 +90,6 @@
 				}
 			} else {
 				print("You already have no classes");
->>>>>>> 5b5d2869f7319cc2897b7b1d05c3033ad95c805a
 			}
 		} else {
 			print("You cannot drop classes at this moment");
